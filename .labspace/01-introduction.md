@@ -2,7 +2,7 @@
 
 👋 Welcome to the **Labspace starter** lab! During this lab, you will learn to do the following:
 
-- Learning Objective 1
+- Run the Python app with Postgres
 - Learning Objective 2
 - Learning Objective 3
 - Learning Objective 4

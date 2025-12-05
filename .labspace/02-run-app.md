@@ -1,10 +1,18 @@
-# Main content
+# Run the Python app with Postgres
 
-## Another section heading
+Review the `Dockerfile` file.
 
-Phasellus consequat vitae enim non ultricies. Quisque sed hendrerit libero. 
+Review the `docker-compose.yml` file.
 
-Nunc in faucibus neque. Ut feugiat vulputate nisl, at iaculis urna malesuada in. 
+Start the application:
+
+```bash
+docker compose up -d --build
+```
+
+Go to the application in the browser: :tabLink[http://localhost:5000]{href="http://localhost:5000" title="Web app"}.
+
+Enter a reservation using the application.
 
 
 
