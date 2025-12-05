@@ -13,5 +13,9 @@ sections:
     contentPath: .labspace/04-mirror-dhi.md
   - title: Use DHI images
     contentPath: .labspace/05-use-dhi.md
+  - title: Scan DHI images
+    contentPath: .labspace/06-scan-dhi.md
+  - title: Harden final container image
+    contentPath: .labspace/07-harden-image.md
   - title: Conclusion
-    contentPath: .labspace/03-conclusion.md
+    contentPath: .labspace/08-conclusion.md

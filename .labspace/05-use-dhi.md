@@ -39,6 +39,6 @@ Enter a reservation using the application to confirm that the application is sti
 
 ## Discuss the volume directory change for postgres
 
-FIXME
+FIXME - explain what and why
 
 Discuss the volume directory change for postgres.
