@@ -14,7 +14,7 @@ Enter `curl https://www.docker.com`.
 
 ## Update the Dockerfile to use minimal DHI base image
 
-Update the `Dockerfile` with this content:
+Update the :fileLink[Dockerfile]{path="Dockerfile"} with this content:
 
 ```yaml
 FROM $$org$$/dhi-python:3.13-alpine3.22-dev AS builder

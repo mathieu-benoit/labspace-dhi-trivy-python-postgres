@@ -1,6 +1,13 @@
 # Scan the container images
 
-## Scan the base Python app
+## Configure Docker Scout organization 
+
+If your account is part of an paid organization, you may have additional output that reflects policy alignment.
+```bash
+docker scout config organization $$org$$
+```
+
+## Scan the Python app
 
 ```bash
 docker build -t web:init --sbom=true --provenance=mode=max .

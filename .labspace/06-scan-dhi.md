@@ -1,4 +1,4 @@
-# Use DHI images
+# Scan DHI images
 
 ## Build a new container image version
 

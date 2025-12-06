@@ -1,8 +1,8 @@
 # Run the Python app with Postgres
 
-Review the `Dockerfile` file.
+Open the :fileLink[Dockerfile]{path="Dockerfile"} and review it.
 
-Review the `docker-compose.yml` file.
+Open the :fileLink[docker-compose.yml]{path="docker-compose.yml"} and review it.
 
 Start the application:
 

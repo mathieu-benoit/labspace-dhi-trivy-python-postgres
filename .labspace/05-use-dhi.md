@@ -1,8 +1,8 @@
 # Use DHI images
 
-## Modify Dockerfile
+## Modify the Dockerfile
 
-Change the image in the `FROM` in the `Dockerfile` and save.
+Change the base image in the `FROM` in the :fileLink[Dockerfile]{path="Dockerfile" line=1} and save.
 
 ```yaml
 FROM $$org$$/dhi-python:3.13-alpine3.22-dev
@@ -13,9 +13,9 @@ FROM $$org$$/dhi-python:3.13-alpine3.22-dev
 + FROM $$org$$/dhi-python:3.13-alpine3.22-dev_curl
 ```
 
-## Modify Docker Compose file
+## Modify the Docker Compose file
 
-Change the db image in the Docker Compose file and save.
+Change the db image in the :fileLink[docker-compose.yml]{path="docker-compose.yml" line=12} and save.
 
 ```yaml
 image: $$org$$/dhi-postgres:17.7

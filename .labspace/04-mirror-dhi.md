@@ -1,40 +1,37 @@
 # Mirror DHI images
-FIXME
+
+FIXME - do we still want the custom image with `curl`?
+
+## First thing to get started, please provide your Docker org name
 
 ::variableDefinition[org]{prompt="What is your Docker Organization?"}
 
-Go to the $$org$$ Docker Hub organization
+## Mirror a DHI Python image repo
 
-    https://hub.docker.com/orgs/$$org$$/repositories
+Go to the [Python DHI page](https://hub.docker.com/orgs/$$org$$/hardened-images/catalog/dhi/python) and click on the `Mirror to repository` button.
 
-Click Hardened Images and Catalog.
+In the opened pop-up set the name of the destination repository to `dhi-python`.
 
-Type python in the search bar to find the python hardended image.
+Click on Mirror. In a few minutes you'll see all available Python DHI tags in your `dhi-python` repository in the Docker Hub. Mirrored repositories work like any other repository in your Docker Hub organization.
 
-Select the python image.
+## Mirror a DHI Postgres image repo
 
-Review the Guide for implementing the image.
+Go to the [Postgres DHI page](https://hub.docker.com/orgs/$$org$$/hardened-images/catalog/dhi/postgres) and click on the `Mirror to repository` button.
 
-Go to images/tags.
+In the opened pop-up set the name of the destination repository to `dhi-postgres`.
 
-Search by `3.13`.
+Click on Mirror. In a few minutes you'll see all available Postgres DHI tags in your `dhi-postgres` repository in the Docker Hub. Mirrored repositories work like any other repository in your Docker Hub organization.
 
-Select Python 3.13.x (dev) - the tag is `3.13-alpine3.22-dev`.
+## Login with docker
 
-Review packages, specifications, vulnerabilities, and attestations for the hardened image.
+In order to use Docker Scout to analyze the image during this lab, you will need to be logged in. Make sure that you are logged in with Docker:
+```bash
+docker login
+```
 
-Mirror the python repository to your organziation with the name dhi-python(already done).
+You should see the following message:
+```bash no-run-button no-copy-button
+Login Succeeded
+```
 
-Select the `dhi-python` repository in your organization.
-
-Select the `customize image` button.
-
-Select `Python 3.13.x (dev) alpine 3.22`.
-
-Select to add the `curl` package.
-
-Review other customizations available.
-
-Start customization build with tag `curl` (already done).
-
-Mirror the postgres DHI image to dhi-postgres (already done).
+If not, follow the instructions to complete login.
