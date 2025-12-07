@@ -1,11 +1,29 @@
 # Scan the container images
 
+## First thing to get started, please provide your Docker org name
+
+::variableDefinition[org]{prompt="What is your Docker Organization?"}
+
 ## Configure Docker Scout organization 
 
 If your account is part of an paid organization, you may have additional output that reflects policy alignment.
 ```bash
 docker scout config organization $$org$$
 ```
+
+## Login with docker
+
+In order to use Docker Scout to analyze the image during this lab, you will need to be logged in. Make sure that you are logged in with Docker:
+```bash
+docker login
+```
+
+You should see the following message:
+```bash no-run-button no-copy-button
+Login Succeeded
+```
+
+If not, follow the instructions to complete login.
 
 ## Scan the Python app
 
