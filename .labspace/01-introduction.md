@@ -1,12 +1,12 @@
 # Introduction
 
-👋 Welcome to the **Docker DHI & Trivy with Python & Postgres** lab!
+👋 Welcome to the **Docker Hardened Images (DHI) & Trivy with Python & PostgreSQL** lab!
 
 During this lab, you will learn to do the following:
 
 - Run the Python app with PostgreSQL
 - Scan the container images with Trivy and Docker Scout
-- Mirror DHI images
-- Use DHI images
-- Scan DHI images with Trivy and Docker Scout
-- Harden final container image
+- Mirror the DHI images
+- Use the DHI images
+- Scan the DHI images with Trivy and Docker Scout
+- Harden the final container image

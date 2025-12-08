@@ -1,4 +1,4 @@
-# Use DHI images
+# Use the DHI images
 
 ## Modify the Dockerfile to use the `dhi-python` image
 
@@ -10,7 +10,7 @@ FROM $$org$$/dhi-python:3.13-debian13-dev
 
 ```diff no-copy-button
 - FROM python:3.13-slim
-+ FROM $$org$$/dhi-python:3.13-debian13-dev_curl
++ FROM $$org$$/dhi-python:3.13-debian13-dev
 ```
 
 ## Modify the Docker Compose file to use the `dhi-postgres` image
@@ -67,6 +67,6 @@ docker images web
 
 ```none no-copy-button
 IMAGE          ID             DISK USAGE   CONTENT SIZE   EXTRA
-web:dhi        2aa4494954c5        238MB         57.8MB                
+web:dhi        bda37908b32e        239MB         57.9MB        
 web:init       391b8587185a        256MB         65.8MB
 ```

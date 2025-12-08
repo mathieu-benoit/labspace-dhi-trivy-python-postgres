@@ -1,6 +1,11 @@
-# Mirror DHI images
+# Mirror the DHI images
 
-FIXME - do we still want the custom image with `curl`?
+If you are able to successfully these two commands below, you can skip this entire section:
+
+```bash
+docker pull $$org$$/dhi-python:3.13-debian13
+docker pull $$org$$/dhi-postgres:17.7
+```
 
 ## Mirror a DHI Python image repo
 

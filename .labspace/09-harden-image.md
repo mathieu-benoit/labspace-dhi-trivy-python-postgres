@@ -1,6 +1,6 @@
-# Harden final container image
+# Harden the final container image
 
-## Exec curl from the python image using the Docker Desktop GUI
+## Exec curl from the Python image using the Docker Desktop GUI
 
 Open the Docker Desktop GUI.
 
@@ -8,9 +8,17 @@ Select the `web-1` container.
 
 Select Exec.
 
-Enter `wget https://www.docker.com`.
-Or.
-Enter `curl https://www.docker.com`.
+Run these commands to install `curl`:
+```bash
+apt update
+apt upgrade
+apt install curl
+```
+
+Try to `curl` an external link:
+```bash
+curl https://www.docker.com
+```
 
 ## Update the Dockerfile to use minimal DHI base image
 
@@ -162,7 +170,7 @@ docker scout compare --ignore-unchanged --to web:init web:hardened
       vulnerabilities │    0C     0H     1M     0L                                           │    0C     0H     1M    20L
 ```
 
-## Exec not possible anymore
+## Exec not possible into the new hardened image
 
 Open the Docker Desktop GUI.
 
@@ -170,4 +178,4 @@ Select the `web-1` container.
 
 Select Exec.
 
-You shouldn't be able to make it.
+You shouldn't be able to make it anymore.
