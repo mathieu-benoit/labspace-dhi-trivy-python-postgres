@@ -52,3 +52,21 @@ docker compose up -d --build
 Go to the application in the browser: :tabLink[http://localhost:5000]{href="http://localhost:5000" title="Web app"}.
 
 Enter a reservation using the application to confirm that the application is still working.
+
+## Build a new container image version
+
+```bash
+docker build -t web:dhi --sbom=true --provenance=mode=max .
+```
+
+Verify the image built:
+
+```bash
+docker images web
+```
+
+```none no-copy-button
+IMAGE          ID             DISK USAGE   CONTENT SIZE   EXTRA
+web:dhi        2aa4494954c5        238MB         57.8MB                
+web:init       391b8587185a        256MB         65.8MB
+```

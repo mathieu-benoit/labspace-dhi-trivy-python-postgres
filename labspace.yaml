@@ -7,15 +7,19 @@ sections:
     contentPath: .labspace/01-introduction.md
   - title: Run the Python app with Postgres
     contentPath: .labspace/02-run-app.md
-  - title: Scan the container images
-    contentPath: .labspace/03-scan-images.md
+  - title: Scan the container images with Trivy
+    contentPath: .labspace/03-scan-images-with-trivy.md
+  - title: Scan the container images with Docker Scout
+    contentPath: .labspace/04-scan-images-with-scout.md
   - title: Mirror DHI images
-    contentPath: .labspace/04-mirror-dhi.md
+    contentPath: .labspace/05-mirror-dhi.md
   - title: Use DHI images
-    contentPath: .labspace/05-use-dhi.md
-  - title: Scan DHI images
-    contentPath: .labspace/06-scan-dhi.md
+    contentPath: .labspace/06-use-dhi.md
+  - title: Scan DHI images with Trivy
+    contentPath: .labspace/07-scan-dhi-with-trivy.md
+  - title: Scan DHI images with Docker Scout
+    contentPath: .labspace/08-scan-dhi-with-scout.md
   - title: Harden final container image
-    contentPath: .labspace/07-harden-image.md
+    contentPath: .labspace/09-harden-image.md
   - title: Conclusion
-    contentPath: .labspace/08-conclusion.md
+    contentPath: .labspace/10-conclusion.md
