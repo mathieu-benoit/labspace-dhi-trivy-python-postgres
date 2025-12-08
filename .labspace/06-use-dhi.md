@@ -80,3 +80,7 @@ IMAGE          ID             DISK USAGE   CONTENT SIZE   EXTRA
 web:dhi        bda37908b32e        239MB         57.9MB        
 web:init       391b8587185a        256MB         65.8MB
 ```
+
+## Resources
+
+- [Minimal or distroless images](https://docs.docker.com/dhi/core-concepts/distroless/)

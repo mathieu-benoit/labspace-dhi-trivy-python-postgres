@@ -1,18 +1,16 @@
 # Conclusion
 
-You’ve completed the **Labspace starter** lab!
+You’ve completed the **Docker Hardened Images (DHI) & Trivy with Python & PostgreSQL** lab!
 
 ✅ You now know how to:
 
-- Learning Objective 1
-- Learning Objective 2
-- Learning Objective 3
-- Learning Objective 4
+- Migrate your `Dockerfile` with Docker Hardened Images (DHI) base images
+- Scan your container images with Trivy or Docker Scout
+- Optimize and harden your container images
 
 ## Next Steps
 
-- Next step #1
-- Next step #2
-- Next step #3
+- [Docker Hardened Images quickstart](https://docs.docker.com/dhi/get-started/)
+- [Docker Scout quickstart](https://docs.docker.com/scout/quickstart/)
 
 🎉 Well done!
