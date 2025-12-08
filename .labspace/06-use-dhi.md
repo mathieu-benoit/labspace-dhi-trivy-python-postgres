@@ -28,18 +28,28 @@ image: $$org$$/dhi-postgres:17.7
 
 ## Modify the Docker Compose file to use the volume directory change for DHI PostgreSQL
 
-Discuss the [volume directory change](https://hub.docker.com/orgs/demonstrationorg/hardened-images/catalog/dhi/postgres/guides#pgdata-migration-from-docker-official-images) for postgres: DHI PostgreSQL uses `/var/lib/postgresql/<MAJOR_VERSION>/data` instead of `/var/lib/postgresql/data`.
+Discuss the [volume directory change](https://hub.docker.com/orgs/demonstrationorg/hardened-images/catalog/dhi/postgres/guides#pgdata-migration-from-docker-official-images) for postgres: DHI PostgreSQL uses `/var/lib/postgresql/<MAJOR_VERSION>/data`, as a good practice, instead of `/var/lib/postgresql/data`.
 
 Update the volume mounts in the :fileLink[docker-compose.yml]{path="docker-compose.yml" line=20} to use the new versioned data directory and save.
 
 ```yaml
-      - postgres_data:/var/lib/postgresql/17/data  # for PostgreSQL 17
+      - new_postgres_data:/var/lib/postgresql/17/data  # for PostgreSQL 17
+```
+
+Update the volume id in the :fileLink[docker-compose.yml]{path="docker-compose.yml" line=32} to use the new versioned data directory and save
+
+```yaml
+  new_postgres_data:
 ```
 
 ```diff no-copy-button
     volumes:
 -      - postgres_data:/var/lib/postgresql/data
-+      - postgres_data:/var/lib/postgresql/17/data  # for PostgreSQL 17
++      - new_postgres_data:/var/lib/postgresql/17/data  # for PostgreSQL 17
+...
+volumes:
+-  postgres_data:
++  new_postgres_data:
 ```
 
 ## Run the application
