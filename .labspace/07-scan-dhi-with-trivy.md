@@ -1,4 +1,4 @@
-# Scan DHI images with Trivy
+# Scan the DHI images with Trivy
 
 ## Scan the Python app image
 
@@ -59,7 +59,7 @@ Get the DHI VEX file:
 docker scout vex get $$org$$/dhi-postgres:17.7 --output postgres-dhi-vex.json
 ```
 
-Scan the PostgreSQL image:
+Scan the PostgreSQL image with the DHI VEX file:
 
 ```bash
 trivy image --scanners vuln --vex ./postgres-dhi-vex.json $$org$$/dhi-postgres:17.7

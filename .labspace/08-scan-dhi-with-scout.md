@@ -1,4 +1,4 @@
-# Scan DHI images with Docker Scout
+# Scan the DHI images with Docker Scout
 
 Scan the Python app image:
 

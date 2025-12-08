@@ -60,7 +60,9 @@ web:hardened   3556bf48ebae        159MB         36.8MB
 web:init       391b8587185a        256MB         65.8MB
 ```
 
-## Scan the container image with Trivy
+## Scan the new hardened container image with Trivy
+
+Scan the new hardened container image with Trivy:
 
 ```bash
 trivy image --scanners vuln web:hardened
@@ -71,6 +73,27 @@ Review the vulnerabilities.
 ```none no-copy-button
 web:hardened (debian 13.2)
 15 (UNKNOWN: 0, LOW: 13, MEDIUM: 2, HIGH: 0, CRITICAL: 0)
+```
+
+## Scan the new hardened container image with Trivy with the DHI VEX
+
+Get the DHI VEX file:
+
+```bash
+docker scout vex get web:hardened --output web-hardened-vex.json
+```
+
+Scan the new hardened container image with Trivy with the DHI VEX:
+
+```bash
+trivy image --scanners vuln --vex ./web-hardened-vex.json web:hardened
+```
+
+Review the vulnerabilities.
+
+```none no-copy-button
+web:hardened (debian 13.2)
+Total: 0
 ```
 
 ## Scan the DHI images using Docker Scout
@@ -85,7 +108,7 @@ Review the Docker Scout quickview.
 0C     0H     1M     0L
 ```
 
-Compare the before and after:
+Compare the differences between `web:hardened` and `web:dhi`:
 
 ```bash
 docker scout compare --ignore-unchanged --to web:dhi web:hardened
@@ -110,6 +133,8 @@ docker scout compare --ignore-unchanged --to web:dhi web:hardened
                       │                                                                      │                                                                       
       vulnerabilities │    0C     0H     1M     0L                                           │    0C     0H     1M     0L 
 ```
+
+Compare the differences between `web:hardened` and `web:init`:
 
 ```bash
 docker scout compare --ignore-unchanged --to web:init web:hardened
