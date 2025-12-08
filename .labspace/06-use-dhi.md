@@ -49,7 +49,7 @@ Run the application:
 docker compose up -d --build
 ```
 
-Go to the application in the browser: :tabLink[http://localhost:5000]{href="http://localhost:5000" title="Web app"}.
+Go to the application in the browser: :tabLink[http://localhost:5001]{href="http://localhost:5001" title="Web app"}.
 
 Enter a reservation using the application to confirm that the application is still working.
 

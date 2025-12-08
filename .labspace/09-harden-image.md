@@ -45,7 +45,7 @@ Run the application:
 docker compose up -d --build
 ```
 
-Go to the application in the browser: :tabLink[http://localhost:5000]{href="http://localhost:5000" title="Web app"}.
+Go to the application in the browser: :tabLink[http://localhost:5001]{href="http://localhost:5001" title="Web app"}.
 
 Enter a reservation using the application to confirm that the application is still working.
 
@@ -179,3 +179,8 @@ Select the `web-1` container.
 Select Exec.
 
 You shouldn't be able to make it anymore.
+
+## Resources
+
+- [Multi-stage builds](https://docs.docker.com/build/building/multi-stage/)
+- [Base image hardening](https://docs.docker.com/dhi/core-concepts/hardening/)

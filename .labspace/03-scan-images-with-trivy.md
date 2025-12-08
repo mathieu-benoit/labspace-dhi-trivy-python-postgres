@@ -38,3 +38,7 @@ postgres:17.7 (debian 13.2)
 usr/local/bin/gosu (gobinary)
 12 (UNKNOWN: 0, LOW: 0, MEDIUM: 8, HIGH: 4, CRITICAL: 0)
 ```
+
+## Resources
+
+- [Comparing Docker Scout results with other scanners](https://docs.docker.com/dhi/how-to/scan/#comparing-docker-scout-results-with-other-scanners)

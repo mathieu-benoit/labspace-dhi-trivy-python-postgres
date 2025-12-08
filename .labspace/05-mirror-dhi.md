@@ -1,6 +1,6 @@
 # Mirror the DHI images
 
-If you are able to successfully these two commands below, you can skip this entire section:
+If you are able to successfully run these two commands below, you can skip this entire section:
 
 ```bash
 docker pull $$org$$/dhi-python:3.13-debian13
@@ -21,4 +21,4 @@ Go to the [PostgreSQL DHI page](https://hub.docker.com/orgs/$$org$$/hardened-ima
 
 In the opened pop-up set the name of the destination repository to `dhi-postgres`.
 
-Click on Mirror. In a few minutes you'll see all available Postgres DHI tags in your `dhi-postgres` repository in the Docker Hub. Mirrored repositories work like any other repository in your Docker Hub organization.
+Click on Mirror. In a few minutes you'll see all available PostgreSQL DHI tags in your `dhi-postgres` repository in the Docker Hub. Mirrored repositories work like any other repository in your Docker Hub organization.
