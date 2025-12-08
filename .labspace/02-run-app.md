@@ -1,4 +1,4 @@
-# Run the Python app with Postgres
+# Run the Python app with PostgreSQL
 
 ## Review the Python app
 

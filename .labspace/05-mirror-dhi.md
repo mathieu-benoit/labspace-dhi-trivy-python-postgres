@@ -10,9 +10,9 @@ In the opened pop-up set the name of the destination repository to `dhi-python`.
 
 Click on Mirror. In a few minutes you'll see all available Python DHI tags in your `dhi-python` repository in the Docker Hub. Mirrored repositories work like any other repository in your Docker Hub organization.
 
-## Mirror a DHI Postgres image repo
+## Mirror a DHI PostgreSQL image repo
 
-Go to the [Postgres DHI page](https://hub.docker.com/orgs/$$org$$/hardened-images/catalog/dhi/postgres) and click on the `Mirror to repository` button.
+Go to the [PostgreSQL DHI page](https://hub.docker.com/orgs/$$org$$/hardened-images/catalog/dhi/postgres) and click on the `Mirror to repository` button.
 
 In the opened pop-up set the name of the destination repository to `dhi-postgres`.
 

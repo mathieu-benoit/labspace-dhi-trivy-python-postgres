@@ -4,7 +4,7 @@
 
 During this lab, you will learn to do the following:
 
-- Run the Python app with Postgres
+- Run the Python app with PostgreSQL
 - Scan the container images with Trivy and Docker Scout
 - Mirror DHI images
 - Use DHI images
