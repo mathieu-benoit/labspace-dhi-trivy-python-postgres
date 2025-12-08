@@ -3,7 +3,7 @@
 Scan the Python app image:
 
 ```bash
-docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v .:/opt aquasec/trivy image --scanners vuln web:dhi
+trivy image --scanners vuln web:dhi
 ```
 
 Review the vulnerabilities.
@@ -16,7 +16,7 @@ web:dhi (debian 13.2)
 Scan the PostgreSQL image:
 
 ```bash
-docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v .:/opt aquasec/trivy image --scanners vuln $$org$$/dhi-postgres:17.7
+trivy image --scanners vuln $$org$$/dhi-postgres:17.7
 ```
 
 Review the vulnerabilities.

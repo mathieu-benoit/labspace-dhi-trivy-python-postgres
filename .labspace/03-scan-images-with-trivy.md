@@ -1,11 +1,17 @@
 # Scan the container images with Trivy
 
+## Install Trivy
+
+```bash
+curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh -s -- -b /usr/local/bin
+```
+
 ## Scan the Python app with Trivy
 
 Scan the Python app with Trivy:
 
 ```bash
-docker run -it -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy --scanners vuln image web:init
+trivy image --scanners vuln web:init
 ```
 
 Review the vulnerabilities.
@@ -20,7 +26,7 @@ web:init (debian 13.2)
 Scan the PostgreSQL image with Trivy:
 
 ```bash
-docker run -it -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image --scanners vuln postgres:17.7
+trivy image --scanners vuln postgres:17.7
 ```
 
 Review the vulnerabilities.

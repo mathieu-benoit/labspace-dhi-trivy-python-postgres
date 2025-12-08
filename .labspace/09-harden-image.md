@@ -63,7 +63,7 @@ web:init       391b8587185a        256MB         65.8MB
 ## Scan the container image with Trivy
 
 ```bash
-docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v .:/opt aquasec/trivy image --scanners vuln web:hardened
+trivy image --scanners vuln web:hardened
 ```
 
 Review the vulnerabilities.
