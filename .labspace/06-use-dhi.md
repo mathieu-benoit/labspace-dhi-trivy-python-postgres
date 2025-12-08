@@ -5,12 +5,12 @@
 Change the base image in the `FROM` in the :fileLink[Dockerfile]{path="Dockerfile" line=1} and save.
 
 ```yaml
-FROM $$org$$/dhi-python:3.13-alpine3.22-dev
+FROM $$org$$/dhi-python:3.13-debian13-dev
 ```
 
 ```diff no-copy-button
 - FROM python:3.13-slim
-+ FROM $$org$$/dhi-python:3.13-alpine3.22-dev_curl
++ FROM $$org$$/dhi-python:3.13-debian13-dev_curl
 ```
 
 ## Modify the Docker Compose file to use the `dhi-postgres` image
