@@ -1,6 +1,6 @@
 title: Docker DHI & Trivy with Python & Postgres Labspace 
 description: |
-  A repository containing a Restaurant reservation application consisting of a basic Python app talking to a Postgres database to demonstrate the use of Docker Hardened Images (DHI) with Trivy scanning.
+  A repository containing a Restaurant reservation application consisting of a basic Python app talking to a PostgreSQL database to demonstrate the use of Docker Hardened Images (DHI) with Trivy scanning.
 
 sections:
   - title: Introduction
