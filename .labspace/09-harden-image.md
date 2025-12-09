@@ -1,6 +1,6 @@
 # Harden the final container image
 
-## Exec curl from the Python image using the Docker Desktop GUI
+## Exec from the Python container
 
 Open the Docker Desktop GUI.
 
@@ -20,7 +20,13 @@ Try to `curl` an external link:
 curl https://www.docker.com
 ```
 
+Having a final container image with a shell and a package manager could bring a lot of security issues.
+
+Let's fix this!
+
 ## Update the Dockerfile to use minimal DHI base image
+
+For that we want to use a Distroless and minimal image approach.
 
 Update the :fileLink[Dockerfile]{path="Dockerfile"} with this content:
 
@@ -108,7 +114,7 @@ web:hardened (debian 13.2)
 Total: 0
 ```
 
-## Scan the DHI images using Docker Scout
+## Scan the new hardened container image with Docker Scout
 
 ```bash
 docker scout quickview web:hardened
@@ -162,7 +168,7 @@ docker scout compare --ignore-unchanged --to web:init web:hardened
       packages        │ 44 (-57)                                                             │ 101
 ```
 
-## Exec not possible into the new hardened image
+## Exec not possible from the hardened Python container
 
 Open the Docker Desktop GUI.
 
@@ -171,6 +177,8 @@ Select the `web-1` container.
 Select Exec.
 
 You shouldn't be able to make it anymore.
+
+You have now a more secure Python container image out there!
 
 ## Resources
 
