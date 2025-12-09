@@ -26,12 +26,16 @@ Update the :fileLink[Dockerfile]{path="Dockerfile"} with this content:
 
 ```yaml
 FROM $$org$$/dhi-python:3.13-debian13-dev AS builder
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 RUN pip install psycopg2-binary --target /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt --target /app
 
 FROM $$org$$/dhi-python:3.13-debian13 AS prod
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 COPY --from=builder /app /app
 COPY . /app
 EXPOSE 5000
@@ -62,10 +66,10 @@ docker images web
 ```
 
 ```none no-copy-button
-IMAGE          ID             DISK USAGE   CONTENT SIZE   EXTRA
-web:dhi        2aa4494954c5        238MB         57.8MB        
-web:hardened   3556bf48ebae        159MB         36.8MB        
-web:init       391b8587185a        256MB         65.8MB
+IMAGE            ID             DISK USAGE   CONTENT SIZE   EXTRA
+web:dhi          bda37908b32e        239MB         57.9MB        
+web:hardened     9924f220528d        160MB         35.5MB        
+web:init         fc63104c9a8e        262MB         69.8MB
 ```
 
 ## Scan the new hardened container image with Trivy
