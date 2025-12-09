@@ -130,20 +130,15 @@ docker scout compare --ignore-unchanged --to web:dhi web:hardened
                       │                            Analyzed Image                            │                           Comparison Image                            
   ────────────────────┼──────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────
     Target            │  web:hardened                                                        │  web:dhi                                                              
-      digest          │  c0ee26e90195                                                        │  7704ea2aec6f                                                         
+      digest          │  9e25a8ec0b0e                                                        │  5ad4dc2d90c0                                                         
       tag             │  latest                                                              │  latest                                                               
       platform        │ linux/amd64                                                          │ linux/amd64                                                           
       provenance      │ https://github.com/mathieu-benoit/labspace-dhi-trivy-python-postgres │ https://github.com/mathieu-benoit/labspace-dhi-trivy-python-postgres  
-                      │  681452bc84b3d7314ec94fac1ea2eb531520f210                            │  681452bc84b3d7314ec94fac1ea2eb531520f210                             
-      vulnerabilities │    0C     0H     1M     0L                                           │    0C     0H     2M     0L                                            
+                      │  e6752960d1876bb07739052ba0929f404703bfd1                            │  a19eea2f7b330432612ebefc0d1c44a33a62f5a5                             
+      vulnerabilities │    0C     0H     0M     0L                                           │    0C     0H     1M     0L                                            
                       │                  -1                                                  │                                                                       
-      size            │ 36 MB (-20 MB)                                                       │ 55 MB                                                                 
-      packages        │ 44 (-42)                                                             │ 86                                                                    
-                      │                                                                      │                                                                       
-    Base image        │  demonstrationorg/dhi-python-nick:3.13-debian13                      │  demonstrationorg/dhi-python-bcg:3.13-debian13-dev                    
-      tags            │ also known as                                                        │ also known as                                                         
-                      │                                                                      │                                                                       
-      vulnerabilities │    0C     0H     1M     0L                                           │    0C     0H     1M     0L 
+      size            │ 34 MB (-21 MB)                                                       │ 55 MB                                                                 
+      packages        │ 44 (-42)                                                             │ 86
 ```
 
 Compare the differences between `web:hardened` and `web:init`:
@@ -156,22 +151,15 @@ docker scout compare --ignore-unchanged --to web:init web:hardened
                       │                            Analyzed Image                            │                           Comparison Image                            
   ────────────────────┼──────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────
     Target            │  web:hardened                                                        │  web:init                                                             
-      digest          │  c0ee26e90195                                                        │  7269e04be765                                                         
+      digest          │  9e25a8ec0b0e                                                        │  ea7557110ca6                                                         
       tag             │  latest                                                              │  latest                                                               
       platform        │ linux/amd64                                                          │ linux/amd64                                                           
       provenance      │ https://github.com/mathieu-benoit/labspace-dhi-trivy-python-postgres │ https://github.com/mathieu-benoit/labspace-dhi-trivy-python-postgres  
-                      │  681452bc84b3d7314ec94fac1ea2eb531520f210                            │  681452bc84b3d7314ec94fac1ea2eb531520f210                             
-      vulnerabilities │    0C     0H     1M     0L                                           │    0C     0H     1M    20L                                            
-                      │                        -20                                           │                                                                       
-      size            │ 36 MB (-28 MB)                                                       │ 64 MB                                                                 
-      packages        │ 44 (-57)                                                             │ 101                                                                   
-                      │                                                                      │                                                                       
-    Base image        │  demonstrationorg/dhi-python-nick:3.13-debian13                      │  python:3.13-slim                                                     
-      tags            │ also known as                                                        │ also known as                                                         
-                      │                                                                      │   • 3.13-slim-trixie                                                  
-                      │                                                                      │   • 3.13.10-slim                                                      
-                      │                                                                      │   • 3.13.10-slim-trixie                                               
-      vulnerabilities │    0C     0H     1M     0L                                           │    0C     0H     1M    20L
+                      │  e6752960d1876bb07739052ba0929f404703bfd1                            │  94a72a184ec641823bbe0b517ed77f0253204901                             
+      vulnerabilities │    0C     0H     0M     0L                                           │    0C     0H     1M    20L                                            
+                      │                  -1    -20                                           │                                                                       
+      size            │ 34 MB (-34 MB)                                                       │ 68 MB                                                                 
+      packages        │ 44 (-57)                                                             │ 101
 ```
 
 ## Exec not possible into the new hardened image
