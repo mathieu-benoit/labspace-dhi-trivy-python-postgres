@@ -45,7 +45,7 @@ Update the volume id in the :fileLink[docker-compose.yml]{path="docker-compose.y
 ```diff no-copy-button
     volumes:
 -      - postgres_data:/var/lib/postgresql/data
-+      - new_postgres_data:/var/lib/postgresql/17/data  # for PostgreSQL 17
++      - new_postgres_data:/var/lib/postgresql  # for PostgreSQL 17
 ...
 volumes:
 -  postgres_data:
