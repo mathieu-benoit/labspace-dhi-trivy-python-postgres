@@ -30,7 +30,7 @@ For that we want to use a Distroless and minimal image approach.
 
 Update the :fileLink[Dockerfile]{path="Dockerfile"} with this content:
 
-```yaml
+```yaml save-as=Dockerfile
 FROM $$org$$/dhi-python:3.13-debian13-dev AS builder
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1

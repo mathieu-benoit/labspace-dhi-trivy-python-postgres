@@ -15,9 +15,52 @@ web:dhi (debian 13.2)
 Total: 48 (UNKNOWN: 0, LOW: 41, MEDIUM: 7, HIGH: 0, CRITICAL: 0)
 ```
 
+## Set up DHI VEX as a Trivy VEX repository
+
+Add the DHI VEX repository in the :fileLink[repository.yaml]{path="../.trivy/vex/repository.yaml"} file.
+
+```yaml
+repositories:
+  - name: default
+    url: https://github.com/aquasecurity/vexhub
+    enabled: true
+    username: ""
+    password: ""
+    token: ""
+  - name: dhi-vex
+    url: https://github.com/docker-hardened-images/advisories
+    enabled: true
+    username: ""
+    password: ""
+```
+
+Download the DHI VEX repo in local Trivy cache:
+
+```bash
+trivy vex repo download
+```
+
+```bash
+trivy vex repo list
+```
+
+```none no-copy-button
+VEX Repositories (config: /home/coder/.trivy/vex/repository.yaml)
+
+- Name: default
+  URL: https://github.com/aquasecurity/vexhub
+  Status: Enabled
+
+- Name: dhi-vex
+  URL: https://github.com/docker-hardened-images/advisories
+  Status: Enabled
+```
+
 ## Scan the Python app image with the DHI VEX
 
-Get the DHI VEX file:
+Two options:
+
+1. Get the DHI VEX file:
 
 ```bash
 docker scout vex get web:dhi --output web-dhi-vex.json
@@ -27,6 +70,12 @@ Scan the Python app image with the DHI VEX file:
 
 ```bash
 trivy image --scanners vuln --vex ./web-dhi-vex.json web:dhi
+```
+
+2. Scan the Python app image with the DHI VEX repository:
+
+```bash
+trivy image --scanners vuln --vex repo web:dhi
 ```
 
 Review the vulnerabilities.
@@ -53,7 +102,9 @@ $$org$$/dhi-postgres:17.7 (debian 13.2)
 
 ## Scan the PostgreSQL image with the DHI VEX
 
-Get the DHI VEX file:
+Two options:
+
+1. Get the DHI VEX file:
 
 ```bash
 docker scout vex get $$org$$/dhi-postgres:17.7 --output postgres-dhi-vex.json
@@ -63,6 +114,12 @@ Scan the PostgreSQL image with the DHI VEX file:
 
 ```bash
 trivy image --scanners vuln --vex ./postgres-dhi-vex.json $$org$$/dhi-postgres:17.7
+```
+
+2. Scan the PostgreSQL image with the DHI VEX repository:
+
+```bash
+trivy image --scanners vuln --vex repo $$org$$/dhi-postgres:17.7
 ```
 
 Review the vulnerabilities.
