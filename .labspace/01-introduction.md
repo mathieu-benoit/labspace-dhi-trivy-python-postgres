@@ -1,6 +1,6 @@
 # Introduction
 
-👋 Welcome to the **Docker Hardened Images (DHI) & Trivy with Python & PostgreSQL** lab!
+👋 Welcome to the **Docker Hardened Images (DHI) & Trivy and Docker Scout with Python & PostgreSQL** lab!
 
 During this lab, you will learn to do the following:
 
