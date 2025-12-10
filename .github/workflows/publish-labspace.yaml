@@ -1,7 +1,7 @@
 name: Package and deploy Labspace
 
 env:
-  OCI_IMAGE: ghcr.io/${{ github.repository_owner }}//labspace-dhi-trivy-python-postgres:latest
+  OCI_IMAGE: ghcr.io/${{ github.repository_owner }}/labspace-dhi-trivy-python-postgres:latest
 
 on:
   push:
