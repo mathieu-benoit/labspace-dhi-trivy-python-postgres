@@ -17,9 +17,15 @@ Total: 48 (UNKNOWN: 0, LOW: 41, MEDIUM: 7, HIGH: 0, CRITICAL: 0)
 
 ## Set up DHI VEX as a Trivy VEX repository
 
-Add the DHI VEX repository in the :fileLink[repository.yaml]{path="../.trivy/vex/repository.yaml"} file.
+Initialize the VEX repositories config file:
 
-```yaml
+```bash
+trivy vex repo init
+```
+
+Add the DHI VEX repository in the :fileLink[repository.yaml]{path="~/.trivy/vex/repository.yaml"} file.
+
+```yaml save-as=~/.trivy/vex/repository.yaml
 repositories:
   - name: default
     url: https://github.com/aquasecurity/vexhub
