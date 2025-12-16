@@ -95,7 +95,9 @@ Total: 15 (UNKNOWN: 0, LOW: 13, MEDIUM: 2, HIGH: 0, CRITICAL: 0)
 
 ## Scan the new hardened container image with Trivy with the DHI VEX
 
-Get the DHI VEX file:
+Two options:
+
+1. Get the DHI VEX file:
 
 ```bash
 docker scout vex get web:hardened --output web-hardened-vex.json
@@ -105,6 +107,12 @@ Scan the new hardened container image with Trivy with the DHI VEX:
 
 ```bash
 trivy image --scanners vuln --vex ./web-hardened-vex.json web:hardened
+```
+
+2. Scan the new hardened container image with the DHI VEX repository:
+
+```bash
+trivy image --scanners vuln --vex repo web:hardened
 ```
 
 Review the vulnerabilities.
@@ -143,7 +151,7 @@ Policy status  SUCCESS  (10/10 policies met)
   ✓      │ Valid Docker Hardened Image (DHI) or DHI base image │    0 deviations
 ```
 
-Compare the differences between `web:hardened` and `web:dhi`:
+- Compare the differences between `web:hardened` and `web:dhi`:
 
 ```bash
 docker scout compare --ignore-unchanged --to web:dhi web:hardened
@@ -165,7 +173,9 @@ docker scout compare --ignore-unchanged --to web:dhi web:hardened
                       │                                                                      │
 ```
 
-Compare the differences between `web:hardened` and `web:init`:
+Note the -20MB reduction in size, -1 CVE reduction in vulnerabilities count and -42 reduction in packages count.
+
+- Compare the differences between `web:hardened` and `web:init`:
 
 ```bash
 docker scout compare --ignore-unchanged --to web:init web:hardened
@@ -186,6 +196,8 @@ docker scout compare --ignore-unchanged --to web:init web:hardened
       packages        │ 44 (-57)                                                             │ 101                                                                   
                       │                                                                      │
 ```
+
+In its final version (`web:hardened`) and overall, note the -31MB reduction in size, -21 CVEs reduction in vulnerabilities count and -57 reduction in packages count.
 
 ## Exec not possible from the hardened Python container
 
