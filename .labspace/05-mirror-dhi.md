@@ -3,8 +3,8 @@
 If you are able to successfully run these two commands below, you can skip this entire section:
 
 ```bash
-docker pull $$org$$/dhi-python:3.13-debian13
-docker pull $$org$$/dhi-postgres:17.7
+docker pull $$org$$/dhi-python:3.14-debian13
+docker pull $$org$$/dhi-postgres:18.1
 ```
 
 ## Mirror a DHI Python image repo

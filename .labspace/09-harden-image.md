@@ -31,7 +31,7 @@ For that we want to use a Distroless and minimal image approach.
 Update the :fileLink[Dockerfile]{path="Dockerfile"} with this content:
 
 ```yaml save-as=Dockerfile
-FROM $$org$$/dhi-python:3.13-debian13-dev AS builder
+FROM $$org$$/dhi-python:3.14-debian13-dev AS builder
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 WORKDIR /app
@@ -39,7 +39,7 @@ RUN pip install psycopg2-binary --target /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt --target /app
 
-FROM $$org$$/dhi-python:3.13-debian13 AS prod
+FROM $$org$$/dhi-python:3.14-debian13 AS prod
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 COPY --from=builder /app /app
@@ -72,10 +72,10 @@ docker images web
 ```
 
 ```none no-copy-button
-IMAGE            ID             DISK USAGE   CONTENT SIZE   EXTRA
-web:dhi          bda37908b32e        239MB         57.9MB        
-web:hardened     9924f220528d        160MB         35.5MB        
-web:init         fc63104c9a8e        262MB         69.8MB
+IMAGE          ID             DISK USAGE   CONTENT SIZE   EXTRA
+web:dhi        3d706e8d6465        243MB         58.8MB        
+web:hardened   9fbc4b1dc20d        163MB         37.6MB        
+web:init       eb3a0f14997a        261MB         69.8MB
 ```
 
 ## Scan the new hardened container image with Trivy
@@ -90,7 +90,7 @@ Review the vulnerabilities.
 
 ```none no-copy-button
 web:hardened (debian 13.2)
-15 (UNKNOWN: 0, LOW: 13, MEDIUM: 2, HIGH: 0, CRITICAL: 0)
+Total: 15 (UNKNOWN: 0, LOW: 13, MEDIUM: 2, HIGH: 0, CRITICAL: 0)
 ```
 
 ## Scan the new hardened container image with Trivy with the DHI VEX
@@ -117,13 +117,30 @@ Total: 0
 ## Scan the new hardened container image with Docker Scout
 
 ```bash
-docker scout quickview web:hardened
+docker scout quickview web:hardened --org $$org$$
 ```
 
 Review the Docker Scout quickview.
 
 ```none no-copy-button
-0C     0H     1M     0L
+  Target     │  web:hardened                               │    0C     0H     0M    10L   
+    digest   │  6cc0194c223b                               │                              
+  Base image │  demonstrationorg/dhi-python:3.14-debian13  │                              
+
+Policy status  SUCCESS  (10/10 policies met)
+
+  Status │                       Policy                        │           Results            
+─────────┼─────────────────────────────────────────────────────┼──────────────────────────────
+  ✓      │ AGPL v3 licenses found                              │    0 packages                
+  ✓      │ Default non-root user                               │                              
+  ✓      │ No AGPL v3 licenses                                 │    0 packages                
+  ✓      │ No embedded secrets                                 │    0 deviations              
+  ✓      │ No embedded secrets (Rego)                          │    0 deviations              
+  ✓      │ No fixable critical or high vulnerabilities         │    0C     0H     0M     0L   
+  ✓      │ No high-profile vulnerabilities                     │    0C     0H     0M     0L   
+  ✓      │ No unapproved base images                           │    0 deviations              
+  ✓      │ Supply chain attestations                           │    0 deviations              
+  ✓      │ Valid Docker Hardened Image (DHI) or DHI base image │    0 deviations
 ```
 
 Compare the differences between `web:hardened` and `web:dhi`:
@@ -136,15 +153,16 @@ docker scout compare --ignore-unchanged --to web:dhi web:hardened
                       │                            Analyzed Image                            │                           Comparison Image                            
   ────────────────────┼──────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────
     Target            │  web:hardened                                                        │  web:dhi                                                              
-      digest          │  9e25a8ec0b0e                                                        │  5ad4dc2d90c0                                                         
+      digest          │  6cc0194c223b                                                        │  cc8632e0d4fa                                                         
       tag             │  latest                                                              │  latest                                                               
       platform        │ linux/amd64                                                          │ linux/amd64                                                           
       provenance      │ https://github.com/mathieu-benoit/labspace-dhi-trivy-python-postgres │ https://github.com/mathieu-benoit/labspace-dhi-trivy-python-postgres  
-                      │  e6752960d1876bb07739052ba0929f404703bfd1                            │  a19eea2f7b330432612ebefc0d1c44a33a62f5a5                             
+                      │  972f63d35bc8629cc14fa3b6e84d114732772370                            │  972f63d35bc8629cc14fa3b6e84d114732772370                             
       vulnerabilities │    0C     0H     0M     0L                                           │    0C     0H     1M     0L                                            
                       │                  -1                                                  │                                                                       
-      size            │ 34 MB (-21 MB)                                                       │ 55 MB                                                                 
-      packages        │ 44 (-42)                                                             │ 86
+      size            │ 36 MB (-20 MB)                                                       │ 56 MB                                                                 
+      packages        │ 44 (-42)                                                             │ 86                                                                    
+                      │                                                                      │
 ```
 
 Compare the differences between `web:hardened` and `web:init`:
@@ -157,15 +175,16 @@ docker scout compare --ignore-unchanged --to web:init web:hardened
                       │                            Analyzed Image                            │                           Comparison Image                            
   ────────────────────┼──────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────
     Target            │  web:hardened                                                        │  web:init                                                             
-      digest          │  9e25a8ec0b0e                                                        │  ea7557110ca6                                                         
+      digest          │  6cc0194c223b                                                        │  839f3fa5e03f                                                         
       tag             │  latest                                                              │  latest                                                               
       platform        │ linux/amd64                                                          │ linux/amd64                                                           
       provenance      │ https://github.com/mathieu-benoit/labspace-dhi-trivy-python-postgres │ https://github.com/mathieu-benoit/labspace-dhi-trivy-python-postgres  
-                      │  e6752960d1876bb07739052ba0929f404703bfd1                            │  94a72a184ec641823bbe0b517ed77f0253204901                             
+                      │  972f63d35bc8629cc14fa3b6e84d114732772370                            │  972f63d35bc8629cc14fa3b6e84d114732772370                             
       vulnerabilities │    0C     0H     0M     0L                                           │    0C     0H     1M    20L                                            
                       │                  -1    -20                                           │                                                                       
-      size            │ 34 MB (-34 MB)                                                       │ 68 MB                                                                 
-      packages        │ 44 (-57)                                                             │ 101
+      size            │ 36 MB (-31 MB)                                                       │ 68 MB                                                                 
+      packages        │ 44 (-57)                                                             │ 101                                                                   
+                      │                                                                      │
 ```
 
 ## Exec not possible from the hardened Python container

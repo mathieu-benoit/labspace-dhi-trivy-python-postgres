@@ -9,7 +9,7 @@ services:
     environment:
       - DATABASE_URL=postgresql://postgres:mysecretpassword@db:5432/dinner_db
   db:
-    image: postgres:17.7
+    image: postgres:18.1
     ports:
       - "5432:5432"
     environment:
@@ -17,7 +17,7 @@ services:
       - POSTGRES_PASSWORD=mysecretpassword
       - POSTGRES_DB=dinner_db
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/
     healthcheck:
       # pg_isready is a utility built into the postgres image
       test: ["CMD-SHELL", "pg_isready -U postgres"]

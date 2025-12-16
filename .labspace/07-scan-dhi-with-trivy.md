@@ -96,14 +96,14 @@ Total: 2 (UNKNOWN: 0, LOW: 2, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 Scan the PostgreSQL image:
 
 ```bash
-trivy image --scanners vuln $$org$$/dhi-postgres:17.7
+trivy image --scanners vuln $$org$$/dhi-postgres:18.1
 ```
 
 Review the vulnerabilities.
 
 ```none no-copy-button
-$$org$$/dhi-postgres:17.7 (debian 13.2)
-59 (UNKNOWN: 0, LOW: 57, MEDIUM: 1, HIGH: 1, CRITICAL: 0)
+$$org$$/dhi-postgres:18.1 (debian 13.2)
+Total: 62 (UNKNOWN: 1, LOW: 59, MEDIUM: 1, HIGH: 1, CRITICAL: 0)
 ```
 
 ## Scan the PostgreSQL image with the DHI VEX
@@ -113,24 +113,24 @@ Two options:
 1. Get the DHI VEX file:
 
 ```bash
-docker scout vex get $$org$$/dhi-postgres:17.7 --output postgres-dhi-vex.json
+docker scout vex get $$org$$/dhi-postgres:18.1 --output postgres-dhi-vex.json
 ```
 
 Scan the PostgreSQL image with the DHI VEX file:
 
 ```bash
-trivy image --scanners vuln --vex ./postgres-dhi-vex.json $$org$$/dhi-postgres:17.7
+trivy image --scanners vuln --vex ./postgres-dhi-vex.json $$org$$/dhi-postgres:18.1
 ```
 
 2. Scan the PostgreSQL image with the DHI VEX repository:
 
 ```bash
-trivy image --scanners vuln --vex repo $$org$$/dhi-postgres:17.7
+trivy image --scanners vuln --vex repo $$org$$/dhi-postgres:18.1
 ```
 
 Review the vulnerabilities.
 
 ```none no-copy-button
-$$org$$/dhi-postgres:17.7 (debian 13.2)
-Total: 1 (UNKNOWN: 0, LOW: 1, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
+$$org$$/dhi-postgres:18.1 (debian 13.2)
+Total: 8 (UNKNOWN: 0, LOW: 8, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```

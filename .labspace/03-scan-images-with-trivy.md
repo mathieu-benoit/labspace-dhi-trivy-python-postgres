@@ -26,17 +26,17 @@ web:init (debian 13.2)
 Scan the PostgreSQL image with Trivy:
 
 ```bash
-trivy image --scanners vuln postgres:17.7
+trivy image --scanners vuln postgres:18.1
 ```
 
 Review the vulnerabilities.
 
 ```none no-copy-button
-postgres:17.7 (debian 13.2)
-115 (UNKNOWN: 1, LOW: 98, MEDIUM: 13, HIGH: 3, CRITICAL: 0)
+postgres:18.1 (debian 13.2)
+Total: 111 (UNKNOWN: 1, LOW: 98, MEDIUM: 11, HIGH: 1, CRITICAL: 0)
 
 usr/local/bin/gosu (gobinary)
-12 (UNKNOWN: 0, LOW: 0, MEDIUM: 8, HIGH: 4, CRITICAL: 0)
+Total: 12 (UNKNOWN: 0, LOW: 0, MEDIUM: 8, HIGH: 4, CRITICAL: 0)
 ```
 
 ## Resources
